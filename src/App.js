@@ -3,7 +3,7 @@ import Searchbar from '../src/components/layouts/searchbar';
 import React, { useEffect } from 'react';
 import 'materialize-css/dist/css/materialize.min.css';
 import M from 'materialize-css/dist/js/materialize.min.js'
-import Logs from './components/logs/Logs';
+import TabsMenu from './components/layouts/TabsMenu';
 
 const App = () => {
 
@@ -14,7 +14,7 @@ const App = () => {
   return (
     <div className="App">
       <Searchbar />
-      <Logs />
+      <TabsMenu />
     </div>
   );
 }
