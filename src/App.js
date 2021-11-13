@@ -1,7 +1,9 @@
 import './App.css';
+import Searchbar from '../src/components/layouts/searchbar';
 import React, { useEffect } from 'react';
 import 'materialize-css/dist/css/materialize.min.css';
 import M from 'materialize-css/dist/js/materialize.min.js'
+import TabsMenu from './components/layouts/TabsMenu';
 
 const App = () => {
 
@@ -11,7 +13,8 @@ const App = () => {
   });
   return (
     <div className="App">
-      <h2> My App is ready for development!!!.</h2>
+      <Searchbar />
+      <TabsMenu />
     </div>
   );
 }
