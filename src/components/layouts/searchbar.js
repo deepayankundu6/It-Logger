@@ -1,9 +1,9 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, Fragment } from 'react';
 
 const Searchbar = () => {
 
     return (
-        <div>
+        <Fragment>
             <nav style={{ marginBottom: '1%' }} className='blue'>
                 <div className="nav-wrapper">
                     <form>
@@ -15,7 +15,7 @@ const Searchbar = () => {
                     </form>
                 </div>
             </nav>
-        </div>
+        </Fragment>
     );
 }
 
