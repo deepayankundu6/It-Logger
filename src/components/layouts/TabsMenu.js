@@ -9,8 +9,8 @@ const TabsMenu = () => {
             <div className="row">
                 <div className="col s12">
                     <ul className="tabs">
-                        <li className="tab col s3"><a href="#test1">Technicians</a></li>
-                        <li className="tab col s3 right"><a className="active" href="#test2">System Logs</a></li>
+                        <li className="tab col s3"><a className="active" href="#test1">Technicians</a></li>
+                        <li className="tab col s3 right"><a href="#test2">System Logs</a></li>
                     </ul>
                 </div>
                 <div id="test1" className="col s12"><Techs /></div>
