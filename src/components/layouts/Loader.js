@@ -10,8 +10,8 @@ function Loader() {
     }
 
     return (
-        <div class="progress center" style={loaderStyle}>
-            <div class="indeterminate"></div>
+        <div className="progress center" style={loaderStyle}>
+            <div className="indeterminate"></div>
         </div>
     )
 }

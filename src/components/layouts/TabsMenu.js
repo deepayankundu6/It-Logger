@@ -5,15 +5,15 @@ const TabsMenu = () => {
 
     return (
         <Fragment>
-            <div class="row">
-                <div class="col s12">
-                    <ul class="tabs">
-                        <li class="tab col s3"><a href="#test1">Technicians</a></li>
-                        <li class="tab col s3 right"><a class="active" href="#test2">System Logs</a></li>
+            <div className="row">
+                <div className="col s12">
+                    <ul className="tabs">
+                        <li className="tab col s3"><a href="#test1">Technicians</a></li>
+                        <li className="tab col s3 right"><a className="active" href="#test2">System Logs</a></li>
                     </ul>
                 </div>
-                <div id="test1" class="col s12">Active techs list here!!!</div>
-                <div id="test2" class="col s12"><Logs></Logs></div>
+                <div id="test1" className="col s12">Active techs list here!!!</div>
+                <div id="test2" className="col s12"><Logs></Logs></div>
             </div>
         </Fragment>
     );
