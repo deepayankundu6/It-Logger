@@ -1,5 +1,6 @@
 import React, { Fragment } from 'react';
 import Logs from '../logs/Logs';
+import Techs from '../Techs/techs'
 
 const TabsMenu = () => {
 
@@ -12,8 +13,8 @@ const TabsMenu = () => {
                         <li className="tab col s3 right"><a className="active" href="#test2">System Logs</a></li>
                     </ul>
                 </div>
-                <div id="test1" className="col s12">Active techs list here!!!</div>
-                <div id="test2" className="col s12"><Logs></Logs></div>
+                <div id="test1" className="col s12"><Techs /></div>
+                <div id="test2" className="col s12"><Logs /></div>
             </div>
         </Fragment>
     );
