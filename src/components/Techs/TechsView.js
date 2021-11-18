@@ -9,7 +9,6 @@ function TechsView() {
     const TechDel = useContext(TechsDeleteContext);
 
     useEffect(() => {
-        console.log(techs);
     })
 
     if (techs.length == 0) {
@@ -22,9 +21,9 @@ function TechsView() {
         }
         else {
 
-            return <div class="collection center" style={techsStyle}>
+            return <div className="collection center" style={techsStyle}>
                 {techs.map(element => {
-                    return < a href="#!" class="collection-item" > {element.firstName + " " + element.lastName}
+                    return < a href="#!" className="collection-item" > {element.firstName + " " + element.lastName}
                         <i className="material-icons right" onClick={() => TechDel(element.id)}> delete </i></a>
                 })}
             </div>
