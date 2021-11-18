@@ -8,11 +8,11 @@ function AddBtn() {
             </a>
             <ul>
                 <li>
-                    <a hreff="#add-log-modal" className="btn-floating green modal-trigger">
+                    <a href="#add-log-modal" className="btn-floating green modal-trigger">
                         <i className="material-icons">add_to_queue</i>
                     </a>
                 </li>
-                <a hreff="#add-tech-modal" className="btn-floating red modal-trigger">
+                <a href="#add-tech-modal" className="btn-floating red modal-trigger">
                     <i className="material-icons">person_add</i>
                 </a>
                 <li>

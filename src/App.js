@@ -7,6 +7,7 @@ import TabsMenu from './components/layouts/TabsMenu';
 import AddBtn from './components/layouts/AddBtn';
 import AddLogs from './components/logs/AddLogs';
 import axios from 'axios';
+import AddTechs from './components/Techs/AddTech';
 
 const App = () => {
 
@@ -29,6 +30,7 @@ const App = () => {
       <TabsMenu />
       <AddBtn />
       <AddLogs techs={TechsName1} />
+      <AddTechs />
     </div>
   );
 }
