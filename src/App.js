@@ -11,13 +11,17 @@ import AddTechs from './components/Techs/AddTech';
 
 const App = () => {
 
-  const [TechsName1, setTechName1] = useState([]);
+  const [TechsName, setTechName] = useState([]);
 
   const getTechsAfterUpdate = useRef(null);
 
   const getTechsData = async () => {
     let resp = await axios.get(`/techs`);
-    setTechName1(resp.data);
+    let techs = [];
+    resp.data.map(tech => {
+      techs.push(tech.firstName + " " + tech.lastName);
+    })
+    setTechName(techs);
   }
   const refreshData = () => {
     getTechsAfterUpdate.current.callgetTechs();
@@ -34,7 +38,7 @@ const App = () => {
       <Searchbar />
       <TabsMenu ref={getTechsAfterUpdate} />
       <AddBtn />
-      <AddLogs techs={TechsName1} />
+      <AddLogs techs={TechsName} />
       <AddTechs refresh={refreshData} />
     </div>
   );
