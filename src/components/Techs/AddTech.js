@@ -1,37 +1,55 @@
+import axios from 'axios';
 import { useState } from 'react';
 
 
-function AddTechs({ techs }) {
+function AddTechs(props) {
 
     const [fName, setfName] = useState('');
     const [lName, setlName] = useState('');
 
     const Submit = () => {
-        console.log("Name Submitted: ", fName + " " + lName)
+        let payload = {
+            "firstName": fName,
+            "lastName": lName
+        }
 
+        if (lName != '' & fName != '') {
+            axios.post("/techs", payload).then((data) => {
+                console.log(data);
+                if (data.data.id) {
+                    console.log("Data saved with id: ", data.id);
+                    setfName('');
+                    setlName('');
+                }
+                else {
+                    console.error("Failed to save data");
+                }
+                props.refresh();
+            });
+        }
     }
 
     return (
         <div id="add-tech-modal" className="modal">
             <div className="modal-content">
 
-                <div class="row">
-                    <div class="col s12">
-                        <div class="row">
-                            <div class="input-field col s12">
+                <div className="row">
+                    <div className="col s12">
+                        <div className="row">
+                            <div className="input-field col s12">
                                 First Name
-                                <input type="text" value={fName} class="autocomplete" onChange={(e) => setfName(e.target.value)} />
+                                <input type="text" value={fName} className="autocomplete" onChange={(e) => setfName(e.target.value)} />
                             </div>
                         </div>
                     </div>
                 </div>
 
-                <div class="row">
-                    <div class="col s12">
-                        <div class="row">
-                            <div class="input-field col s12">
+                <div className="row">
+                    <div className="col s12">
+                        <div className="row">
+                            <div className="input-field col s12">
                                 Last Name
-                                <input type="text" value={lName} class="autocomplete" onChange={(e) => setlName(e.target.value)} />
+                                <input type="text" value={lName} className="autocomplete" onChange={(e) => setlName(e.target.value)} />
                             </div>
                         </div>
                     </div>

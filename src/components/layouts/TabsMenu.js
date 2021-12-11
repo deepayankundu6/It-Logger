@@ -1,8 +1,8 @@
-import React, { Fragment } from 'react';
+import React, { Fragment, forwardRef } from 'react';
 import Logs from '../logs/Logs';
 import Techs from '../Techs/techs'
 
-const TabsMenu = () => {
+const TabsMenu = forwardRef((props, ref) => {
 
     return (
         <Fragment>
@@ -13,11 +13,11 @@ const TabsMenu = () => {
                         <li className="tab col s3 right"><a href="#test2">System Logs</a></li>
                     </ul>
                 </div>
-                <div id="test1" className="col s12"><Techs /></div>
+                <div id="test1" className="col s12"><Techs ref={ref} /></div>
                 <div id="test2" className="col s12"><Logs /></div>
             </div>
         </Fragment>
     );
-}
+})
 
 export default TabsMenu;

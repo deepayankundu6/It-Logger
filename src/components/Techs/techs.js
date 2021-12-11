@@ -1,4 +1,4 @@
-import { useState, useEffect, createContext } from 'react';
+import { useState, useEffect, createContext, forwardRef, useImperativeHandle } from 'react';
 import axios from 'axios';
 import TechsView from './TechsView';
 
@@ -6,7 +6,7 @@ const Techsdata = createContext();
 const LoadingContext = createContext();
 const TechsDeleteContext = createContext();
 
-function Techs() {
+const Techs = forwardRef((props, ref) => {
 
     const [TechsName, setTechName] = useState([]);
     const [loading, setLoading] = useState(false);
@@ -15,6 +15,12 @@ function Techs() {
         let resp = await axios.get(`/techs`);
         setTechName(resp.data);
     }
+
+    useImperativeHandle(ref, () => ({
+        callgetTechs() {
+            getTechs();
+        }
+    }))
 
     useEffect(() => {
         setLoading(true);
@@ -38,7 +44,7 @@ function Techs() {
             </LoadingContext.Provider>
         </TechsDeleteContext.Provider>
     )
-}
+})
 
 export default Techs;
 export { Techsdata, LoadingContext, TechsDeleteContext };

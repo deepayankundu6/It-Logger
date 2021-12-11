@@ -1,6 +1,6 @@
 import './App.css';
 import Searchbar from '../src/components/layouts/searchbar';
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import 'materialize-css/dist/css/materialize.min.css';
 import M from 'materialize-css/dist/js/materialize.min.js'
 import TabsMenu from './components/layouts/TabsMenu';
@@ -13,24 +13,29 @@ const App = () => {
 
   const [TechsName1, setTechName1] = useState([]);
 
-  const getTechs = async () => {
+  const getTechsAfterUpdate = useRef(null);
+
+  const getTechsData = async () => {
     let resp = await axios.get(`/techs`);
     setTechName1(resp.data);
+  }
+  const refreshData = () => {
+    getTechsAfterUpdate.current.callgetTechs();
   }
 
   useEffect(() => {
     // Initialises materialise javascript
     M.AutoInit();
-    getTechs();
+    getTechsData();
   }, []);
 
   return (
     <div className="App">
       <Searchbar />
-      <TabsMenu />
+      <TabsMenu ref={getTechsAfterUpdate} />
       <AddBtn />
       <AddLogs techs={TechsName1} />
-      <AddTechs />
+      <AddTechs refresh={refreshData} />
     </div>
   );
 }
